@@ -1,3 +1,4 @@
+import requests
 from requests import Request, Session, hooks
 from requests.auth import HTTPBasicAuth
 
@@ -12,7 +13,7 @@ class CIQHttpClient(object):
         self.access_token = self.get_token(username, password)
 
 
-    def get_token(username, password):
+    def get_token(self, username, password):
         # TODO use the request method I'm already writing
         print("Get Token")
         url = "https://890407d7-e617-4d70-985f-01792d693387.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token"
