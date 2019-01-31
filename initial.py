@@ -30,6 +30,18 @@ def get_all_assets():
     response = requests.get(url, params=querystring, headers=headers).json()
     print(response)
 
+def get_all_locations():
+    print("Get all locations")
+    url = "https://ic-metadata-service.run.aws-usw02-pr.ice.predix.io/v2/metadata/locations/search"
+    querystring = {"q":"locationType:TRAFFIC_LANE","bbox":"33.077762:-117.663817,32.559574:-116.584410","page":"0","size":"50"}
+    token = get_token()
+    headers = {
+        'Authorization': "Bearer {}".format(token),
+        'Predix-Zone-Id': "SDSIM-IE-TRAFFIC",
+        'cache-control': "no-cache",
+        'Postman-Token': "0210ae95-133f-4461-be45-1b65eda435e1"
+    }
+    response = requests.get(url, params=querystring, headers=headers).json()
+    print(response)
 
-
-
+#get_all_locations()
